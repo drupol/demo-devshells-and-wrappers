@@ -3,6 +3,8 @@
   inputs = {
     # Provides the large `nixpkgs` package set.
     nixpkgs.url = "github:NixOS/nixpkgs";
+    # Provides a list of systems supported by Nix (x86_64-linux, aarch64-linux, etc.).
+    systems.url = "github:nix-systems/default";
   };
 
   # The outputs function defines what this flake provides.
@@ -11,12 +13,7 @@
     inputs:
     let
       # Helper to generate attributes for multiple system architectures.
-      eachSystem = inputs.nixpkgs.lib.genAttrs [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
+      eachSystem = inputs.nixpkgs.lib.genAttrs (import inputs.systems);
     in
     {
       # Define development shells for each architecture.
