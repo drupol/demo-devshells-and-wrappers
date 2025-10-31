@@ -21,10 +21,7 @@
       # Helper to generate attributes for multiple system architectures.
       # Documentation: https://noogle.dev/f/lib/genAttrs
       forAllSystems =
-        fn:
-        lib.genAttrs [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ] (
-          system: fn inputs.nixpkgs.legacyPackages.${system}
-        );
+        fn: lib.genAttrs lib.systems.flakeExposed (system: fn inputs.nixpkgs.legacyPackages.${system});
     in
     {
       # Define development shells for each architecture.
