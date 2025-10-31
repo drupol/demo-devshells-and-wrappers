@@ -12,6 +12,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     # import-tree helps to import all Nix files from a directory.
     import-tree.url = "github:vic/import-tree";
+    # make-shell provides utilities to create development shells more declaratively.
+    make-shell.url = "github:nicknovitski/make-shell";
   };
 
   # The outputs function defines what this flake provides.
