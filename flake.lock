@@ -18,6 +18,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1761120675,
+        "narHash": "sha256-TEbh9zISiQcU82VwVoEbmXHnSGlUxTwvjJA9g9ErSDA=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "a037ed2a58fc0ebed9e93b9ef79b0646e648f719",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1761922107,
@@ -51,6 +66,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
         "systems": "systems"
       }
