@@ -1,4 +1,7 @@
+{ inputs, ... }:
 {
+  imports = [ inputs.make-shell.flakeModules.default ];
+
   # Define per-system modules.
   # It is a function that takes `pkgs` and many other parameters.
   # The `pkgs` parameter is the package set for the given system architecture.
@@ -6,7 +9,7 @@
     { pkgs, ... }:
     {
       # Development shell definition.
-      devShells.default = pkgs.mkShell {
+      make-shells.default = {
         # List the packages to be available in the shell.
         packages = [
           pkgs.php
