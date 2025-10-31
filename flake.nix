@@ -12,15 +12,23 @@
 
   # The outputs function defines what this flake provides.
   # Its sole parameter is `inputs`, which contains the resolved inputs.
-  outputs = inputs: {
-    # Define development shells for `x86_64-linux` architecture/platform only.
-    # This means that theses shells will only be available on 64-bit Linux systems.
-    devShells.x86_64-linux =
-      let
-        # Get the package set for the current system architecture and platform.
-        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-      in
-      {
+  outputs =
+    inputs:
+    let
+      # Alias for the Nixpkgs library.
+      lib = inputs.nixpkgs.lib;
+
+      # Helper to generate attributes for multiple system architectures.
+      # Documentation: https://noogle.dev/f/lib/genAttrs
+      forAllSystems =
+        fn:
+        lib.genAttrs [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ] (
+          system: fn inputs.nixpkgs.legacyPackages.${system}
+        );
+    in
+    {
+      # Define development shells for each architecture.
+      devShells = forAllSystems (pkgs: {
         php = pkgs.mkShell {
           # List the packages to be available in the shell.
           packages = [
@@ -49,6 +57,6 @@
             echo ""
           '';
         };
-      };
-  };
+      });
+    };
 }

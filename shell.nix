@@ -9,4 +9,4 @@
         or "https://github.com/NixOS/flake-compat/archive/${lock.nodes.${nodeName}.locked.rev}.tar.gz";
     sha256 = lock.nodes.${nodeName}.locked.narHash;
   }
-) { src = ./.; }).outputs.devShells.x86_64-linux
+) { src = ./.; }).outputs.devShells.${builtins.currentSystem}
