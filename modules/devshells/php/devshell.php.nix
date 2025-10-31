@@ -14,7 +14,20 @@
       make-shells.php = {
         # List the packages to be available in the shell.
         packages = [
-          pkgs.php
+          (pkgs.symlinkJoin {
+            name = "php";
+            nativeBuildInputs = [
+              pkgs.makeBinaryWrapper
+            ];
+            paths = [
+              pkgs.php
+            ];
+            postBuild = ''
+              wrapProgram $out/bin/php \
+                --add-flags "-d memory_limit=512M" \
+                --add-flags "-d zend_extension=${pkgs.php.extensions.xdebug}/lib/php/extensions/xdebug.so"
+            '';
+          })
           pkgs.php.packages.composer
         ];
 
