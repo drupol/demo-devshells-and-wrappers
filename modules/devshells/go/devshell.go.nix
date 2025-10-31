@@ -9,17 +9,17 @@
     { pkgs, ... }:
     {
       # Development shell definition.
-      make-shells.default = {
+      make-shells.go = {
         # List the packages to be available in the shell.
         packages = [
-          pkgs.php
-          pkgs.php.packages.composer
+          pkgs.go
+          pkgs.gotools
         ];
 
         # Optional: Run commands when the shell starts.
         shellHook = ''
           echo ""
-          echo ">> PHP development environment is ready!"
+          echo ">> Go development environment is ready!"
           echo ""
         '';
       };
