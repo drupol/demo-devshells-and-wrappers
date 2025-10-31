@@ -16,12 +16,9 @@
     inputs:
     let
       # Helper to generate attributes for multiple system architectures.
-      eachSystem = inputs.nixpkgs.lib.genAttrs [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
+      # Documentation: https://noogle.dev/f/lib/genAttrs
+      # Note: in this case, it is written in tacit/point-free style for brevity.
+      eachSystem = inputs.nixpkgs.lib.genAttrs inputs.nixpkgs.lib.systems.flakeExposed;
     in
     {
       # Define development shells for each architecture.
