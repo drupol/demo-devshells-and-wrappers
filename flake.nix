@@ -11,6 +11,8 @@
     import-tree.url = "github:vic/import-tree";
     # make-shell provides utilities to create development shells more declaratively.
     make-shell.url = "github:nicknovitski/make-shell";
+    # this project provides a quick way to add packages "by-name" in flake parts.
+    pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
   };
 
   # The outputs function defines what this flake provides.
