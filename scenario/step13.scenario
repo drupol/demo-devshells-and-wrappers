@@ -1,0 +1,24 @@
+$ # Step 13
+
+#timeout: 1.0
+
+$ nix develop .#php
+
+>> PHP development environment is ready!
+
+$ php -v
+PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.4.13, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.13, Copyright (c), by Zend Technologies
+    with Xdebug v3.4.6, Copyright (c) 2002-2025, by Derick Rethans
+
+$ composer --version
+Composer version 2.8.12 2025-09-19 13:41:59
+PHP version 8.4.15 (/nix/store/mp6q0kkxskyaqfk30r0v4xj3ck5g7ycv-php-with-extensions-8.4.15/bin/php)
+Run the "diagnose" command to get more detailed diagnostics output.
+
+$ php -i | grep "memory_limit"
+memory_limit => 512M => 512M
+
+$ exit

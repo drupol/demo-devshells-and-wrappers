@@ -1,0 +1,13 @@
+$ # Step 15
+
+#timeout: 1.0
+
+$ nix run github:drupol/demo-devshells-and-wrappers/step15#active-php-version
+ _______
+< 8.5.2 >
+ -------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||

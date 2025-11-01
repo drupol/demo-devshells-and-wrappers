@@ -1,0 +1,15 @@
+$ # Step 17
+
+#timeout: 1.0
+
+$ nix develop .#node14
+
+$ node --version
+v14.21.3
+
+$ exit
+
+$ nix develop github:drupol/demo-devshells-and-wrappers/step17#node14
+
+$ node --version
+v14.21.3

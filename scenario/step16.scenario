@@ -1,0 +1,9 @@
+$ # Step 16
+
+#timeout: 1.0
+
+$ nix run .#nodejs14-bin -- --version
+v14.21.3
+
+$ nix run github:drupol/demo-devshells-and-wrappers/step16#nodejs14-bin
+v14.21.3
