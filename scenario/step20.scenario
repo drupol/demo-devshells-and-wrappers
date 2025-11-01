@@ -2,12 +2,7 @@ $ # Step 19
 
 #timeout: 1.0
 
-$ nix build .#nixosConfigurations.my-custom-config.config.system.build.toplevel
-
-$ ls -la ./result
-lrwxrwxrwx 1 pol users 96 jan 23 18:11 ./result -> /nix/store/bwsl8aqgfshg3z7dgnpwl1bynqq0fls8-nixos-system-my-custom-config-25.11.20251031.f20b568
-
-$ export QEMU_NET_OPTS="hostfwd=tcp:127.0.0.1:2222-:22,hostfwd=tcp:127.0.0.1:8080-:80" nix run .#nixosConfigurations.my-custom-config.config.system.build.vm
+$ QEMU_NET_OPTS="hostfwd=tcp:127.0.0.1:8080-:80" nix run .#nixosConfigurations.my-custom-config.config.system.build.vm
 Disk image does not exist, creating the virtualisation disk image...
 Formatting '/tmp/nix-shell-48292-389049162/nix-shell.tEolTV/nix-shell.cFdSTS/nix-shell.CKuEaC/nix-shell.LYQBGt/tmp.iLGeYRFCMW', fmt=raw size=1073741824
 mke2fs 1.47.3 (8-Jul-2025)
