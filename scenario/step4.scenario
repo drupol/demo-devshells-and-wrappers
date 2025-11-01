@@ -1,0 +1,68 @@
+$ # Step 4
+
+$
+
+#timeout: 1.0
+
+$ nix-shell
+error: nix-shell requires a single derivation
+Try 'nix-shell --help' for more information.
+
+$
+
+#timeout: 1.0
+
+$ nix-shell --attr php
+
+>> PHP development environment is ready!
+
+$
+
+#timeout: 1.0
+
+$ php -v
+PHP 8.4.15 (cli) (built: Nov 18 2025 17:26:05) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.4.15, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.15, Copyright (c), by Zend Technologies
+
+$
+
+#timeout: 1.0
+
+$ composer --version
+Composer version 2.8.12 2025-09-19 13:41:59
+PHP version 8.4.15 (/nix/store/mp6q0kkxskyaqfk30r0v4xj3ck5g7ycv-php-with-extensions-8.4.15/bin/php)
+Run the "diagnose" command to get more detailed diagnostics output.
+
+$ exit
+
+$
+
+#timeout: 1.0
+
+$ nix-shell --attr go
+these 2 paths will be fetched (81.95 MiB download, 447.83 MiB unpacked):
+  /nix/store/0a3dyfq09dnkw28ap2i450wjimvdmv6s-go-1.25.4
+  /nix/store/p780alfnvfqvn3386xwl1vf0qp9y65wa-gotools-0.34.0
+copying path '/nix/store/0a3dyfq09dnkw28ap2i450wjimvdmv6s-go-1.25.4' from 'https://cache.nixos.org'...
+copying path '/nix/store/p780alfnvfqvn3386xwl1vf0qp9y65wa-gotools-0.34.0' from 'https://cache.nixos.org'...
+
+>> Go development environment is ready!
+
+$
+
+#timeout: 1.0
+
+$ go version
+go version go1.25.4 linux/amd64
+
+$ exit
+
+$
+
+#timeout: 1.0
+
+$ go version
+
+fish: Unknown command: go

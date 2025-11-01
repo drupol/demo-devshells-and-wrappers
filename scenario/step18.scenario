@@ -1,0 +1,10 @@
+$ # Step 18
+
+#timeout: 1.0
+
+$ nix fmt
+traversed 32 files
+emitted 15 files for processing
+formatted 15 files (0 changed) in 364ms
+
+$

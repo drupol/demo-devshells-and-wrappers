@@ -1,0 +1,30 @@
+$ # Step 19
+
+#timeout: 1.0
+
+$ nix-build -A nodejs14-bin-image
+these 4 derivations will be built:
+  /nix/store/cv24fiaavcg5b4ykl22jayqs15kd7bxv-nodejs14-bin-image-config.json.drv
+  /nix/store/4q7w98gia59h2ch9im83r5a54l8vhh7r-docker-layer-nodejs14-bin-image.drv
+  /nix/store/2km0jyvs38y1jdvb1fp8maqnb1pc8saq-runtime-deps.drv
+  /nix/store/gyavgnchbcxs1slhn3hjjcxjxy1arpak-docker-image-nodejs14-bin-image.tar.gz.drv
+building '/nix/store/cv24fiaavcg5b4ykl22jayqs15kd7bxv-nodejs14-bin-image-config.json.drv'...
+building '/nix/store/4q7w98gia59h2ch9im83r5a54l8vhh7r-docker-layer-nodejs14-bin-image.drv'...
+Adding contents...
+Adding /nix/store/50f3678liqxkz0zszlyjs3hmdjxbl65r-nodejs14-bin-14.21.3
+Packing layer...
+Finished building layer 'nodejs14-bin-image'
+building '/nix/store/2km0jyvs38y1jdvb1fp8maqnb1pc8saq-runtime-deps.drv'...
+structuredAttrs is enabled
+building '/nix/store/gyavgnchbcxs1slhn3hjjcxjxy1arpak-docker-image-nodejs14-bin-image.tar.gz.drv'...
+Adding layer...
+tar: Removing leading `/' from member names
+Adding meta...
+Cooking the image...
+Finished.
+/nix/store/2jfs10cx0mywhk033m8i56m1ir4pb9qp-docker-image-nodejs14-bin-image.tar.gz
+
+$ podman load -i ./result
+
+$ podman run -ti --rm localhost/nodejs14-bin-image:latest node --version
+v14.21.3

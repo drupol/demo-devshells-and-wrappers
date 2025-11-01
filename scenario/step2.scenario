@@ -1,0 +1,30 @@
+$ # Step 2
+
+#timeout: 1.0
+
+$ cat ./scripts/active-php-version.sh
+─────┬───────────────────────────────────────────────────────────────────────
+     │ File: ./scripts/active-php-version.sh
+─────┼───────────────────────────────────────────────────────────────────────
+   1 │ #!/usr/bin/env nix-shell
+   2 │ #! nix-shell -i bash --pure
+   3 │ #! nix-shell -p bash cacert curl jq cowsay
+   4 │ #! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/ace24a96b5c7932a4955b151aa8b37e4cb154496.tar.gz
+   2 │
+   3 │ curl -L -s https://www.php.net/releases/active.php \
+   4 │   | jq -r '[.[][] | .version] | last' \
+   5 │   | cowsay
+─────┴───────────────────────────────────────────────────────────────────────
+$
+
+#timeout: 1.0
+
+$ ./scripts/active-php-version.sh
+ _______
+< 8.5.2 >
+ -------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||

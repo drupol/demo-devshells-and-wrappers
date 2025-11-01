@@ -1,0 +1,11 @@
+$ # Step 16
+
+#timeout: 1.0
+
+$ nix run .#nodejs14-bin -- --version
+v14.21.3
+
+#timeout: 1.0
+
+$ nix run github:drupol/nix-hands-on/step16#nodejs14-bin
+v14.21.3

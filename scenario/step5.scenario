@@ -1,0 +1,77 @@
+$ # Step 5
+
+#timeout: 1.0
+
+$ nix flake show
+git+file:///home/pol/Code/tmp/nix-hands-on
+└───devShells
+    └───x86_64-linux
+        ├───go: development environment 'nix-shell'
+        └───php: development environment 'nix-shell'
+
+#timeout: 1.0
+
+$ nix develop .#go
+
+>> Go development environment is ready!
+
+#timeout: 1.0
+
+$ go version
+go version go1.25.4 linux/amd64
+
+#timeout: 1.0
+
+$ exit
+
+#timeout: 1.0
+
+$ nix develop .#php
+
+>> PHP development environment is ready!
+
+#timeout: 1.0
+
+$ php -v
+PHP 8.4.15 (cli) (built: Nov 18 2025 17:26:05) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.4.15, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.15, Copyright (c), by Zend Technologies
+
+#timeout: 1.0
+
+$ composer --version
+Composer version 2.8.12 2025-09-19 13:41:59
+PHP version 8.4.15 (/nix/store/mp6q0kkxskyaqfk30r0v4xj3ck5g7ycv-php-with-extensions-8.4.15/bin/php)
+Run the "diagnose" command to get more detailed diagnostics output.
+
+#timeout: 1.0
+
+$ php -i | grep "memory_limit"
+memory_limit => 128M => 128M
+
+#timeout: 1.0
+
+$ exit
+
+#timeout: 1.0
+
+$ nix flake show github:drupol/nix-hands-on/step5
+github:drupol/nix-hands-on/15071d05d257fdf28ca36ac39cb8b1cf8384e043?narHash=sha256-J%2BJ1nGDbgxiUhTPFIbxH2eKjQNPD%2B9TCTgTYA07K2Ao%3D
+└───devShells
+    ├───x86_64-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+
+#timeout: 1.0
+
+$ nix develop github:drupol/nix-hands-on/step5#go
+
+>> Go development environment is ready!
+
+#timeout: 1.0
+
+$ go version
+go version go1.25.4 linux/amd64
+
+#timeout: 1.0
