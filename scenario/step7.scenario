@@ -1,0 +1,51 @@
+$ # Step 7
+
+#timeout: 1.0
+
+$ nix-instantiate --eval --expr '(import <nixpkgs> {}).lib.systems.flakeExposed'
+[
+  "x86_64-linux"
+  "aarch64-linux"
+  "x86_64-darwin"
+  "armv6l-linux"
+  "armv7l-linux"
+  "i686-linux"
+  "aarch64-darwin"
+  "powerpc64le-linux"
+  "riscv64-linux"
+  "x86_64-freebsd"
+]
+
+$ nix flake show
+git+file:///home/pol/Code/tmp/nix-hands-on
+└───devShells
+    ├───aarch64-darwin
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───aarch64-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───armv6l-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───armv7l-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───i686-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───powerpc64le-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───riscv64-linux
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───x86_64-darwin
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    ├───x86_64-freebsd
+    │   ├───go omitted (use '--all-systems' to show)
+    │   └───php omitted (use '--all-systems' to show)
+    └───x86_64-linux
+        ├───go: development environment 'nix-shell'
+        └───php: development environment 'nix-shell'

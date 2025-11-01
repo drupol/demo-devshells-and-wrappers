@@ -1,0 +1,60 @@
+$ # Step 12
+
+#timeout: 1.0
+
+$ git checkout step12
+
+#timeout: 1.0
+
+$ nix develop .#php
+
+>> PHP development environment is ready!
+
+#timeout: 1.0
+
+$ php --version
+PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.4.13, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.13, Copyright (c), by Zend Technologies
+
+#timeout: 1.0
+
+$ php -i | grep "memory_limit"
+
+memory_limit => 128M => 128M
+
+$ exit
+
+#timeout: 1.0
+
+--
+
+$ # Step 14
+
+$ git checkout step14
+
+#timeout: 1.0
+
+$ nix develop .#php
+
+>> PHP development environment is ready!
+
+#timeout: 1.0
+
+$ php --version
+PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.4.13, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.13, Copyright (c), by Zend Technologies
+    with Xdebug v3.4.6, Copyright (c) 2002-2025, by Derick Rethans
+
+#timeout: 1.0
+
+$ php -i | grep "memory_limit"
+
+memory_limit => 512M => 512M
+
+#timeout: 1.0
+
+$ exit

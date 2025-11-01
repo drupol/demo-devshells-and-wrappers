@@ -1,0 +1,19 @@
+$ # Step 17
+
+#timeout: 1.0
+
+$ nix develop .#node14
+
+$ node --version
+v14.21.3
+
+#timeout: 1.0
+
+$ exit
+
+$ nix develop github:drupol/nix-hands-on/step17#node14
+
+#timeout: 1.0
+
+$ node --version
+v14.21.3

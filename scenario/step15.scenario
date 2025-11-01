@@ -1,0 +1,23 @@
+$ # Step 15
+
+#timeout: 1.0
+
+$ nix run .#active-php-version
+ _______
+< 8.5.2 >
+ -------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+$ nix run github:drupol/nix-hands-on/step15#active-php-version
+ _______
+< 8.5.2 >
+ -------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
