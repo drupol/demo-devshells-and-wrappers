@@ -18,6 +18,8 @@
     wrappers.url = "github:lassulus/wrappers";
     # this project provides a quick way to add packages "by-name" in flake parts.
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
+    # treefmt-nix provides formatting for all the project files.
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   # The outputs function defines what this flake provides.
