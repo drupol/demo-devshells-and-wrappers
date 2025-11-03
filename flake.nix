@@ -17,46 +17,10 @@
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      # The `systems` list determines which platforms to support.
-      systems = inputs.nixpkgs.lib.systems.flakeExposed;
-
-      # Define per-system modules.
-      # It is a function that takes `pkgs` and many other parameters.
-      # The `pkgs` parameter is the package set for the given system architecture.
-      perSystem =
-        { pkgs, ... }:
-        {
-          # Development shell definitions.
-          devShells = {
-            php = pkgs.mkShell {
-              # List the packages to be available in the shell.
-              packages = [
-                pkgs.php
-                pkgs.php.packages.composer
-              ];
-
-              # Optional: Run commands when the shell starts.
-              shellHook = ''
-                echo ""
-                echo ">> PHP development environment is ready!"
-                echo ""
-              '';
-            };
-            go = pkgs.mkShell {
-              # List the packages to be available in the shell.
-              packages = [
-                pkgs.go
-                pkgs.gotools
-              ];
-
-              # Optional: Run commands when the shell starts.
-              shellHook = ''
-                echo ""
-                echo ">> Go development environment is ready!"
-                echo ""
-              '';
-            };
-          };
-        };
+      imports = [
+        ./modules/devshells/php/devshell.php.nix
+        ./modules/devshells/go/devshell.go.nix
+        ./modules/systems.nix
+      ];
     };
 }
