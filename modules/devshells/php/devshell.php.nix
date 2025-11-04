@@ -14,19 +14,16 @@
       make-shells.php = {
         # List the packages to be available in the shell.
         packages = [
-          (pkgs.symlinkJoin {
-            name = "php";
-            nativeBuildInputs = [
-              pkgs.makeBinaryWrapper
+          # Use `wrapPackage` from `lassulus/wrappers` instead of pkgs.symlinkJoin
+          (inputs.wrappers.lib.wrapPackage {
+            inherit pkgs;
+            package = pkgs.php;
+            args = [
+              "-d"
+              "memory_limit=512M"
+              "-d"
+              "zend_extension=${pkgs.php.extensions.xdebug}/lib/php/extensions/xdebug.so"
             ];
-            paths = [
-              pkgs.php
-            ];
-            postBuild = ''
-              wrapProgram $out/bin/php \
-                --add-flags "-d memory_limit=512M" \
-                --add-flags "-d zend_extension=${pkgs.php.extensions.xdebug}/lib/php/extensions/xdebug.so"
-            '';
           })
           pkgs.php.packages.composer
         ];

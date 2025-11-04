@@ -14,6 +14,8 @@
     import-tree.url = "github:vic/import-tree";
     # make-shell provides utilities to create development shells more declaratively.
     make-shell.url = "github:nicknovitski/make-shell";
+    # Use lassulus/wrappers for making wrapper scripts.
+    wrappers.url = "github:lassulus/wrappers";
   };
 
   # The outputs function defines what this flake provides.
