@@ -13,17 +13,34 @@
   ),
 }:
 
-pkgs.mkShell {
-  # List the packages to be available in the shell.
-  packages = [
-    pkgs.php
-    pkgs.php.packages.composer
-  ];
+{
+  php = pkgs.mkShell {
+    # List the packages to be available in the shell.
+    packages = [
+      pkgs.php
+      pkgs.php.packages.composer
+    ];
 
-  # Optional: Run commands when the shell starts.
-  shellHook = ''
-    echo ""
-    echo ">> PHP development environment is ready!"
-    echo ""
-  '';
+    # Optional: Run commands when the shell starts.
+    shellHook = ''
+      echo ""
+      echo ">> PHP development environment is ready!"
+      echo ""
+    '';
+  };
+
+  go = pkgs.mkShell {
+    # List the packages to be available in the shell.
+    packages = [
+      pkgs.go
+      pkgs.gotools
+    ];
+
+    # Optional: Run commands when the shell starts.
+    shellHook = ''
+      echo ""
+      echo ">> Go development environment is ready!"
+      echo ""
+    '';
+  };
 }
